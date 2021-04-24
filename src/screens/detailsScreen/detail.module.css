@@ -1,0 +1,44 @@
+@font-face{
+    font-family:'NunitoSemi';
+    src:url(../../fonts/NunitoSans-SemiBold.ttf);
+}
+@font-face{
+    font-family:'NunitoRegular';
+    src:url(../../fonts/NunitoSans-Regular.ttf);
+}
+.author{
+    font-family:'NunitoSemi';
+    font-size:16px;
+    margin:0;
+}
+
+.publishedDate{
+    font-family:'NunitoRegular';
+    font-size:12px;
+    margin:0;
+}
+
+.description{
+    line-height: 1.4;
+    font-size: 15px;
+    font-family:'NunitoRegular';
+    color:#999999;
+}
+
+.seeMore{
+    font-size:18px;
+    font-family: 'NunitoRegular';
+    color:#000000;
+    text-decoration: none;
+}
+
+.backToFeed{
+    text-decoration:none;
+    font-family: 'NunitoRegular';
+    font-size:16px;
+    color:#999999;
+}
+
+.backToFeedIcon{
+    width:14px;
+}
