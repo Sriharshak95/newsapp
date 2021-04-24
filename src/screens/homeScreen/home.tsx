@@ -4,12 +4,12 @@ import moment from 'moment';
 import newsImage from '../../images/news.jpg';
 import Loader from '../../components/loader/loader';
 import Error from '../../components/error/error';
-import {News} from '../../interface/news';
+import {NewsInterface} from '../../interface';
 
 
 const Home = () => {
 
-    const [listOfNews, setListOfNews] = React.useState<News[]>([]);
+    const [listOfNews, setListOfNews] = React.useState<NewsInterface[]>([]);
     const [error, setError] = React.useState(false);
     const [isLoading, setLoading] = React.useState(true);
     
@@ -29,7 +29,7 @@ const Home = () => {
         }
     }
 
-    const authorDisplay = (news: News) => {
+    const authorDisplay = (news: NewsInterface) => {
         if (news.author !== null) {
             if (news.author.includes('https://')) {
                 return news.author.substring(news.author.lastIndexOf('/') + 1).split("-").join(" ");
@@ -40,7 +40,7 @@ const Home = () => {
         return news.source.name;
     }
 
-    const avatarDisplay = (news: News) => (
+    const avatarDisplay = (news: NewsInterface) => (
         news.author ? news.author.charAt(0) : news.source.name.charAt(0)
     );
 
