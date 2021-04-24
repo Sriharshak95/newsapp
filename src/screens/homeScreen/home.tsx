@@ -19,12 +19,13 @@ const Home = () => {
 
     const getListOfNews = async () => {
         try {
-            const response = await fetch('https://newsapi.org/v2/everything?q=tesla&apiKey=f1c3ca22d80a4d0b88485a568a6dd8ca&sortBy=publishedAt');
+            const response = await fetch('htps://newsapi.org/v2/everything?q=tesla&apiKey=f1c3ca22d80a4d0b88485a568a6dd8ca&sortBy=publishedAt');
 
             const newsList = await response.json();
             setListOfNews([...newsList.articles]);
             setLoading(false);
         } catch (e) {
+            console.log(e.message);
             setError(true);
         }
     }

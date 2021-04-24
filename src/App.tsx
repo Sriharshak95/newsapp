@@ -13,12 +13,8 @@ function App() {
     <Router>
       <Container maxWidth="md">
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/detail">
-            <Detail />
-          </Route>
+          <Route exact path="/" component={Home} />
+          <Route path="/detail" component={Detail} />
         </Switch>
       </Container>
     </Router>

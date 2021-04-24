@@ -2,6 +2,7 @@ import { useLocation, Link } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
 import Back from '../../images/left-arrow.png';
 import NewsCard from '../../components/card/card';
+import styles from './detail.module.css';
 
 const Detail = () => {
 
@@ -18,7 +19,7 @@ const Detail = () => {
                 urlToImage={urlToImage}
                 action={
                     <IconButton>
-                        <Link to="/"><img src={Back} alt="back" /> Back to Feed</Link>
+                        <Link to="/" className={styles.backToFeed}><img src={Back} className={styles.backToFeedIcon} alt="back" /> Back to Feed</Link>
                     </IconButton>
                 }
                 title={title}

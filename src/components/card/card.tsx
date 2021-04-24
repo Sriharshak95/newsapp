@@ -37,7 +37,7 @@ const NewsCard = (props: NewsInterface) => {
                     </div>
                     }
                     {props.action && 
-                        <p className={styles.seeMore}>{props.content}</p>
+                        <p className={styles.content}>{props.content}</p>
                     }
                 </div>
             </CardContent>
