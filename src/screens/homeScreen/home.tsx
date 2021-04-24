@@ -1,29 +1,18 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
 import NewsCard from '../../components/card/card';
 import moment from 'moment';
 import newsImage from '../../images/news.jpg';
 import Loader from '../../components/loader/loader';
 import Error from '../../components/error/error';
+import {News} from '../../interface/news';
 
-interface News {
-    author: string,
-    description: string,
-    title: string,
-    publishedAt: string,
-    urlToImage: string,
-    source: {
-        id: any,
-        name: string
-    },
-    content: string
-}
 
 const Home = () => {
 
     const [listOfNews, setListOfNews] = React.useState<News[]>([]);
     const [error, setError] = React.useState(false);
     const [isLoading, setLoading] = React.useState(true);
+    
     React.useEffect(() => {
         getListOfNews();
     }, []);
@@ -36,7 +25,6 @@ const Home = () => {
             setListOfNews([...newsList.articles]);
             setLoading(false);
         } catch (e) {
-            console.error(e);
             setError(true);
         }
     }
@@ -56,8 +44,7 @@ const Home = () => {
         news.author ? news.author.charAt(0) : news.source.name.charAt(0)
     );
 
-    return (
-        <Container maxWidth="sm">
+    return (<>
             {
         error ? <Error /> :
         isLoading ? <Loader /> :
@@ -78,8 +65,7 @@ const Home = () => {
                     )
                 })
             }
-        </Container>
-    )
+        </>);
 };
 
 export default Home;

@@ -1,6 +1,6 @@
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-const loader = () => {
+const Loader = () => {
     return (
     <div>
         <CircularProgress />
@@ -8,4 +8,4 @@ const loader = () => {
     );
 };
 
-export default loader;
+export default Loader;

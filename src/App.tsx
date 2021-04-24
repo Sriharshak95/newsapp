@@ -1,4 +1,4 @@
-import React from 'react';
+import Container from '@material-ui/core/Container';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,14 +11,16 @@ import Home from './screens/homeScreen/home';
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/detail">
-          <Detail />
-        </Route>
-      </Switch>
+      <Container maxWidth="md">
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/detail">
+            <Detail />
+          </Route>
+        </Switch>
+      </Container>
     </Router>
   );
 }
