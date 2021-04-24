@@ -1,19 +1,14 @@
-import React from 'react';
-import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import { red } from '@material-ui/core/colors';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import moment from 'moment';
 import { Link } from 'react-router-dom';
-import styles from './home.module.css';
+import styles from './card.module.css';
 import { Avatar } from '@material-ui/core';
-import newsImage from '../../images/news.jpg';
-import { PinDropSharp } from '@material-ui/icons';
 
-const useStyles = makeStyles({
+const homeStyles = makeStyles({
     root: {
         maxWidth: 345,
         marginRight: 'auto',
@@ -28,23 +23,45 @@ const useStyles = makeStyles({
     },
 });
 
+const detailStyles = makeStyles({
+        root: {
+            maxWidth: 640,
+            marginRight: 'auto',
+            marginLeft: 'auto',
+            marginBottom: '1.5rem'
+        },
+        media: {
+            height: 320,
+        },
+        avatar: {
+            backgroundColor: red[500],
+        },
+        icon: {
+            width: 12
+        }
+});
+    
+
 interface News {
     author: string,
     description: string,
     title: string,
     publishedAt: string,
     urlToImage: string,
-    avatar: string,
+    avatar?: string,
     pathname ?: string,
-    source:{
+    source : {
         id: any,
         name: string
-    }
+    },
+    content ?: string,
+    action ?: any
 }
 
-const card = (props: News) => {
+
+const NewsCard = (props: News) => {
     
-     const classes = useStyles();
+     const classes = props.action ? detailStyles() : homeStyles();
     
     return (
         <Card className={classes.root}>
@@ -54,6 +71,7 @@ const card = (props: News) => {
                     <Avatar className={classes.avatar}>{props.avatar}</Avatar>
                 }
                 subheader={<p className={styles.publishedDate}>{props.publishedAt}</p>}
+                action={props.action ? props.action : null}
             />
             <CardMedia
                 className={classes.media}
@@ -66,8 +84,11 @@ const card = (props: News) => {
                     <span className={styles.description}>{props.description}</span>
                     {props.pathname && 
                     <div>
-                        <Link to={{ pathname: props.pathname, state: {...props} }} className={styles.seeMore}>See More</Link>
+                        <Link to={{ pathname: props.pathname, news: {...props} }} className={styles.seeMore}>See More</Link>
                     </div>
+                    }
+                    {props.action && 
+                        <p className={styles.seeMore}>{props.content}</p>
                     }
                 </div>
             </CardContent>
@@ -75,4 +96,4 @@ const card = (props: News) => {
     )
 }
 
-export default card;
+export default NewsCard;

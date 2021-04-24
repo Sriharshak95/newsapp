@@ -1,10 +1,10 @@
 @font-face{
     font-family:'NunitoSemi';
-    src:url(../../fonts/NunitoSans-SemiBold.ttf);
+    src:url(../fonts/NunitoSans-SemiBold.ttf);
 }
 @font-face{
     font-family:'NunitoRegular';
-    src:url(../../fonts/NunitoSans-Regular.ttf);
+    src:url(../fonts/NunitoSans-Regular.ttf);
 }
 .author{
     font-family:'NunitoSemi';

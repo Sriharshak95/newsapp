@@ -1,31 +1,9 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import { red } from '@material-ui/core/colors';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
+import NewsCard from '../../components/card';
 import moment from 'moment';
-import { Link } from 'react-router-dom';
-import styles from './home.module.css';
-import { Avatar } from '@material-ui/core';
 import newsImage from '../../images/news.jpg';
 
-const useStyles = makeStyles({
-    root: {
-        maxWidth: 345,
-        marginRight: 'auto',
-        marginLeft: 'auto',
-        marginBottom: '1.5rem'
-    },
-    media: {
-        height: 140,
-    },
-    avatar: {
-        backgroundColor: red[500],
-    },
-});
 
 interface News {
     author: string,
@@ -33,10 +11,11 @@ interface News {
     title: string,
     publishedAt: string,
     urlToImage: string,
-    source:{
+    source: {
         id: any,
         name: string
-    }
+    },
+    content: string
 }
 
 const Home = () => {
@@ -56,7 +35,6 @@ const Home = () => {
             console.error(e);
         }
     }
-    const classes = useStyles();
 
     const authorDisplay = (news: News) => {
         if (news.author !== null) {
@@ -78,27 +56,18 @@ const Home = () => {
             {
                 listOfNews.map((news,index) => {
                     return (
-                        <Card className={classes.root} key={news.publishedAt + index}>
-                            <CardHeader
-                                title={<p className={styles.author}>{authorDisplay(news)}</p>}
-                                avatar={
-                                    <Avatar className={classes.avatar}>{avatarDisplay(news)}</Avatar>
-                                }
-                                subheader={<p className={styles.publishedDate}>{moment(news.publishedAt).format("MMM D YYYY")}</p>}
-                            />
-                            <CardMedia
-                                className={classes.media}
-                                image={news.urlToImage ? news.urlToImage : newsImage}
-                                title="Contemplative Reptile"
-                            />
-                            <CardContent>
-                                <p className={styles.title}>{news.title}</p>
-                                <div>
-                                    <span className={styles.description}>{news.description + " "}</span>
-                                    <Link to={{ pathname: "/detail", state: news }} className={styles.seeMore}>See More</Link>
-                                </div>
-                            </CardContent>
-                        </Card>
+                        <NewsCard 
+                            key={news.publishedAt+index}
+                            author={authorDisplay(news)}
+                            avatar={avatarDisplay(news)}
+                            publishedAt={moment(news.publishedAt).format("MMM D YYYY")}
+                            urlToImage={news.urlToImage ? news.urlToImage : newsImage}
+                            title={news.title}
+                            description={news.description}
+                            pathname="/detail" 
+                            source={news.source}
+                            content={news.content}
+                        />
                     )
                 })
             }
