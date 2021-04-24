@@ -1,9 +1,10 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
-import NewsCard from '../../components/card';
+import NewsCard from '../../components/card/card';
 import moment from 'moment';
 import newsImage from '../../images/news.jpg';
-
+import Loader from '../../components/loader/loader';
+import Error from '../../components/error/error';
 
 interface News {
     author: string,
@@ -21,6 +22,8 @@ interface News {
 const Home = () => {
 
     const [listOfNews, setListOfNews] = React.useState<News[]>([]);
+    const [error, setError] = React.useState(false);
+    const [isLoading, setLoading] = React.useState(true);
     React.useEffect(() => {
         getListOfNews();
     }, []);
@@ -30,9 +33,11 @@ const Home = () => {
             const response = await fetch('https://newsapi.org/v2/everything?q=tesla&apiKey=f1c3ca22d80a4d0b88485a568a6dd8ca&sortBy=publishedAt');
 
             const newsList = await response.json();
-            setListOfNews(newsList.articles);
+            setListOfNews([...newsList.articles]);
+            setLoading(false);
         } catch (e) {
             console.error(e);
+            setError(true);
         }
     }
 
@@ -54,6 +59,8 @@ const Home = () => {
     return (
         <Container maxWidth="sm">
             {
+        error ? <Error /> :
+        isLoading ? <Loader /> :
                 listOfNews.map((news,index) => {
                     return (
                         <NewsCard 

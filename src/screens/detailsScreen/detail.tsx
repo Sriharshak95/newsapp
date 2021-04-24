@@ -2,13 +2,12 @@ import Container from '@material-ui/core/Container';
 import { useLocation, Link } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
 import Back from '../../images/left-arrow.png';
-import NewsCard from '../../components/card';
+import NewsCard from '../../components/card/card';
 
 const Detail = () => {
 
     let location = useLocation();
     const news = location.news;
-    console.log(news.content);
     return (
         <Container maxWidth="md">
             <NewsCard 
