@@ -4,14 +4,15 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import { Link } from 'react-router-dom';
 import styles from './card.module.css';
-import { Avatar } from '@material-ui/core'; 
-import {homeStyles,detailStyles} from '../../styles';   
-import {NewsInterface} from '../../interface';
+import { Avatar } from '@material-ui/core';
+import { homeStyles, detailStyles } from '../../styles';
+import { NewsInterface } from '../../interface';
 
+//Reusable Card Component to display Individual News Feeds.
 const NewsCard = (props: NewsInterface) => {
-    
+
     const classes = props.action ? detailStyles() : homeStyles();
-    
+
     return (
         <Card className={classes.root}>
             <CardHeader
@@ -31,12 +32,12 @@ const NewsCard = (props: NewsInterface) => {
                 <p className={styles.title}>{props.title}</p>
                 <div>
                     <span className={styles.description}>{props.description}</span>
-                    {props.pathname && 
-                    <div>
-                        <Link to={{ pathname: props.pathname, news: {...props} }} className={styles.seeMore}>See More</Link>
-                    </div>
+                    {props.pathname &&
+                        <div>
+                            <Link to={{ pathname: props.pathname, news: { ...props } }} className={styles.seeMore}>See More</Link>
+                        </div>
                     }
-                    {props.action && 
+                    {props.action &&
                         <p className={styles.content}>{props.content}</p>
                     }
                 </div>

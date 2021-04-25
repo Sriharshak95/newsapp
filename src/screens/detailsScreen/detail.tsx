@@ -4,15 +4,16 @@ import Back from '../../images/left-arrow.png';
 import NewsCard from '../../components/card/card';
 import styles from './detail.module.css';
 
+//Individual News Detail
 const Detail = () => {
 
     const location = useLocation();
-    const {author, avatar, publishedAt, urlToImage,
-    title, description, content, source} = location.news;
+    const { author, avatar, publishedAt, urlToImage,
+        title, description, content, source } = location.news;
 
     return (
         <>
-            <NewsCard 
+            <NewsCard
                 author={author}
                 avatar={avatar}
                 publishedAt={publishedAt}

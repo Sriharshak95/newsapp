@@ -5,12 +5,12 @@ export interface NewsInterface {
     title: string,
     publishedAt: string,
     urlToImage: string,
-    avatar?: string,
+    avatar?: string,   //author image icon
     pathname ?: string,
     source: {
         id: any,
         name: string
     },
-    action ?: any
+    action ?: any     //A reactnode that brings the control back to the home page.
     content: string
 };

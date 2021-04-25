@@ -6,7 +6,8 @@ export const homeStyles = makeStyles({
         maxWidth: 345,
         marginRight: 'auto',
         marginLeft: 'auto',
-        marginBottom: '1.5rem'
+        marginBottom: '1.5rem',
+        marginTop: '1.5rem'
     },
     media: {
         height: 140,
@@ -17,19 +18,27 @@ export const homeStyles = makeStyles({
 });
 
 export const detailStyles = makeStyles({
-        root: {
-            maxWidth: 640,
-            marginRight: 'auto',
-            marginLeft: 'auto',
-            marginBottom: '1.5rem'
-        },
-        media: {
-            height: 320,
-        },
-        avatar: {
-            backgroundColor: red[500],
-        },
-        icon: {
-            width: 12
-        }
+    root: {
+        maxWidth: 640,
+        marginRight: 'auto',
+        marginLeft: 'auto',
+        marginBottom: '1.5rem',
+        marginTop: '1.5rem'
+    },
+    media: {
+        height: 320,
+    },
+    avatar: {
+        backgroundColor: red[500],
+    },
+    icon: {
+        width: 12
+    }
 });
+
+export const backDropStyles = makeStyles((theme) => ({
+    backdrop: {
+        zIndex: theme.zIndex.drawer + 1,
+        color: '#fff',
+    },
+}));
