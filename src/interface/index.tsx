@@ -11,6 +11,7 @@ export interface NewsInterface {
         id: any,
         name: string
     },
-    action ?: any     //A reactnode that brings the control back to the home page.
+    url ?: string,
+    action ?: any,    //A reactnode that brings the control back to the home page.
     content: string
 };

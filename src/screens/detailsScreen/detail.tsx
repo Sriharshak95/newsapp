@@ -9,7 +9,7 @@ const Detail = () => {
 
     const location = useLocation();
     const { author, avatar, publishedAt, urlToImage,
-        title, description, content, source } = location.news;
+        title, description, content, source, url } = location.news;
 
     return (
         <>
@@ -27,6 +27,7 @@ const Detail = () => {
                 description={description}
                 source={source}
                 content={content}
+                url={url}
             />
         </>
     )

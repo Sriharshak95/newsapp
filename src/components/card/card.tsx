@@ -29,7 +29,7 @@ const NewsCard = (props: NewsInterface) => {
                 title={props.title}
             />
             <CardContent>
-                <p className={styles.title}>{props.title}</p>
+                <a href={props.url} target="_blank" rel="noreferrer" className={styles.title}>{props.title}</a>
                 <div>
                     <span className={styles.description}>{props.description}</span>
                     {props.pathname &&

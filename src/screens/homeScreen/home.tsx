@@ -7,7 +7,6 @@ import Error from '../../components/error/error';
 import { NewsInterface } from '../../interface';
 import PullToRefresh from 'react-simple-pull-to-refresh';
 
-
 const Home = () => {
 
     const [listOfNews, setListOfNews] = React.useState<NewsInterface[]>([]);
@@ -61,9 +60,12 @@ const Home = () => {
                 isLoading ? <Loader /> :
                     listOfNews.map((news, index) => {
                         return (
-                            <PullToRefresh onRefresh={handleRefresh} maxPullDownDistance={125}>
+                            <PullToRefresh 
+                                key={news.publishedAt + index}
+                                onRefresh={handleRefresh}
+                                maxPullDownDistance={125}
+                            >
                                 <NewsCard
-                                    key={news.publishedAt + index}
                                     author={authorDisplay(news)}
                                     avatar={avatarDisplay(news)}
                                     publishedAt={moment(news.publishedAt).format("MMM D YYYY")}
@@ -73,6 +75,7 @@ const Home = () => {
                                     pathname="/detail"
                                     source={news.source}
                                     content={news.content}
+                                    url={news.url}
                                 />
                             </PullToRefresh>
                         )
