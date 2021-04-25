@@ -51,7 +51,6 @@ const Home = () => {
 
     //Pull to retry handler
     const handleRefresh = () => {
-
         setLoading(true)
         getListOfNews()
     }

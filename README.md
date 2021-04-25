@@ -1,46 +1,24 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Available Scripts
 
 In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Description of my solution
 
-### `npm test`
+* I have built the solution using React Functional components and hooks.
+* For specifying props and state types I have built the code in Typescript.
+* I have integrate Pull-to-Refresh on the news feed page to get latest updates on news.
+* I have structured the application into main page and other reusable components ( card, error and loader) by using React principle such as every component serves a single functionality and DRY principle.
+* I have used es6+ features like spread operators, async/await and arrow functions at suitable places.
+* I have placed the assets needed for the application into `fonts` and `images` folders.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Libraries used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* [momentJs](https://momentjs.com/) - used this library to format the date of the published news.
+* [react-router](https://reactrouter.com/) - used this library to create and specify routes to navigate between home and detail page.
+* [material-ui](https://material-ui.com/) - used this library to provide a user-friendly and modern ui such as card design and responsive ui.
+* [pull-to-refresh](https://github.com/thmsgbrt/react-simple-pull-to-refresh) - used this library to integrate pull to refresh feature that works on both desktop on mobile to give the feel for users to load latest news in the feed.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
