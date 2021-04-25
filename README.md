@@ -2,12 +2,6 @@
 
 A user-friendly news application built on React and TypeScript. 
 
-## Project Screen Shot(s)
-
-[ PRETEND SCREEN SHOT IS HERE ]
-
-[ PRETEND OTHER SCREEN SHOT IS HERE ]
-
 ## Installation and Setup Instructions
 
 #### Example:  
