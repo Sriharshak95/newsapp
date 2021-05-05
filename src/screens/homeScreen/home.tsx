@@ -50,36 +50,35 @@ const Home = () => {
 
     //Pull to retry handler
     const handleRefresh = () => {
-        setLoading(true)
         getListOfNews()
     }
 
     return (<>
         {
             error ? <Error /> :
-                isLoading ? <Loader /> :
-                    listOfNews.map((news, index) => {
+                isLoading ? <Loader /> : 
+                <PullToRefresh 
+                    onRefresh={handleRefresh}
+                    maxPullDownDistance={125}
+                >
+                   { listOfNews.map((news, index) => {
                         return (
-                            <PullToRefresh 
-                                key={news.publishedAt + index}
-                                onRefresh={handleRefresh}
-                                maxPullDownDistance={125}
-                            >
                                 <NewsCard
                                     author={authorDisplay(news)}
                                     avatar={avatarDisplay(news)}
                                     publishedAt={moment(news.publishedAt).format("MMM D YYYY")}
                                     urlToImage={news.urlToImage ? news.urlToImage : newsImage}
                                     title={news.title}
+                                    key={index + news.publishedAt}
                                     description={news.description}
                                     pathname="/detail"
                                     source={news.source}
                                     content={news.content}
                                     url={news.url}
                                 />
-                            </PullToRefresh>
                         )
-                    })
+                    })}
+                </PullToRefresh>
         }
     </>);
 };
